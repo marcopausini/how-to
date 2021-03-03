@@ -1,0 +1,50 @@
+== Create VNC session on MEEP server
+
+* Activate BSC VPN
+
+=== Start tightvnc server process
+* Open terminal in Windows (e.g., MobaXterm), connect to satu 
+----
+ssh mpausini@ssh.hca.bsc.es
+#enter the password for hca
+ssh satu
+#enter the password for hca again
+----
+* On the remote machine launch `w`, observe if there is a tightvnc server process running already, take note of the session number
+* To kill an existing session:
+----
+tightvncserver -kill :4 # kill previous sessions to restart from scratch
+----
+* To re-launch:
+----
+tightvncserver -geometry 1920x1080
+----
+
+=== Connect to remote desktop 
+* Open a new terminal on Windows and establish a tunnel to satu using the number of the vnc session from previous step, assume :4 was given by previous step for this example, assume port 4444 is free, if not use different port number:
+----
+ssh -C -t -L 5901:localhost:4444 mpausini@ssh.hca.bsc.es ssh -C -L 4444:localhost:5904 satu
+#enter the password for hca twice
+----
+* Open the vncviewer app on Windows
+Establish a session with localhost:5901
+If requested insert the password given when tightvncserver was setup.
+
+This should open your remote desktop, from there open xterm and source the EDA environment:
+
+----
+source /eda/env.sh
+----
+
+Now you should be finally able to run EDA tools, for example:
+----
+vlog
+vsim
+dc_shell
+fm_shell
+genus
+----
+
+
+
+
