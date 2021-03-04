@@ -23,7 +23,7 @@ tightvncserver -geometry 1920x1080
 === Connect to remote desktop 
 * Open a new terminal on Windows and establish a tunnel to satu using the number of the vnc session from previous step, assume :4 was given by previous step for this example, assume port 4444 is free, if not use different port number:
 ----
-ssh -C -t -L 5901:localhost:4444 mpausini@ssh.hca.bsc.es ssh -C -L 4444:localhost:5904 satu
+ssh -C -t -L 5901:localhost:4444 mpausini@ssh.hca.bsc.es ssh -C -L 4444:localhost:5905 satu
 #enter the password for hca twice
 ----
 * Open the vncviewer app on Windows
