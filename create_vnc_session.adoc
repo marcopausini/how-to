@@ -10,7 +10,10 @@ ssh mpausini@ssh.hca.bsc.es
 ssh satu
 #enter the password for hca again
 ----
-* On the remote machine launch `w`, or, better, ll .vnc/*.pid, observe if there is a tightvnc server process running already, take note of the session number
+* Observe if there is a tightvnc server process running already, and take note of the session number. On the remote machine launch `w`, or, better, 
+----
+ll .vnc/*.pid 
+----
 * To kill an existing session:
 ----
 tightvncserver -kill :4 # kill previous sessions to restart from scratch
