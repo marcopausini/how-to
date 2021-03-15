@@ -48,6 +48,10 @@ fm_shell
 genus
 ----
 
+To change xterm settings:
+----
+/usr/bin/xterm -bg black -fg white -fn 9x15 -geometry 80x24+10+10 -ls -T “xterm” &”
+----
 
 
 
