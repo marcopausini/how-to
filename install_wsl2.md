@@ -1,6 +1,13 @@
-WSL2 will install LInux on `C:`.  
-  
-## Enable WSL2
+# Install Windows Subsystem for Linux 2
+
+WSL2 will install Linux on `C:`.  
+
+## Install
+Powershell:  
+`wsl --install`
+
+## Manual Install
+### Enable WSL2
 Enable Windows features:
 - Virtual Machine Platform
 - Windows Subsystem for Linux  
@@ -8,11 +15,15 @@ Enable Windows features:
 Reboot Windows, and enable WSL2 as the default in Windows Power Shell   
 `PS> wsl --set-default-version 2` 
 
-## Download Linux
-Install any Linux dostro from the **Microsoft Sore**, accessed from the Start menu. **Ubuntu** is a good choice.
+### Download Linux
+Install any Linux dostro from the **Microsoft Sore**, accessed from the Start menu. **Ubuntu** is a good choice.  
+_Note: someone commented in a forum to avoid Microsoft Store_
 
 ## Launch Linux
-Click Ubuntu icon in the start menu
+- Install and use Windows Terminal
+- Click Ubuntu icon in the start menu
+- From PowerShell `ubuntu`
+- From POwerShell `wsl.exe`, then `exit`
 
 ## Update Linux
 ```
@@ -57,3 +68,48 @@ explorer.exe .
 notepad.exe ~/.bashrc
 code ~/projects/mywebsite
 ```
+
+## Powershell wsl commands
+```
+wsl (launch default shell)
+wsl --list --running
+wsl --list --all
+wsl --status
+wsl --terminate
+wsl --shutdown
+```
+
+## Linux GUI Apps
+```
+gedit
+gimp
+nautilus
+vlc
+xcalc
+xclock
+xeyes
+google-chrome
+```
+
+
+
+## Issues
+1. Windows executable not launched from Linux  
+_Workaround: restart Windows_  
+
+2. Linux Files accessible from Windows only at startup  
+_Workaround: restart Windows_
+
+_Debugging_:  
+```
+marco@LTMARCOP01:~$ dmesg |grep 9p  
+
+[    0.565732] 9p: Installing v9fs 9p2000 file system support
+[    0.567699] FS-Cache: Netfs '9p' registered for caching
+[    0.720207] 9pnet: Installing 9P2000 support
+[    2.545714] 9pnet_virtio: no channels available for device drvfs
+[    2.780407] 9pnet_virtio: no channels available for device drvfs
+```
+
+
+
